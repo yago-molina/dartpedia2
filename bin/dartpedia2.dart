@@ -1,10 +1,13 @@
 import 'dart:io';
+import 'package:command_runner/command_runner.dart';
 import 'package:http/http.dart' as http;
 
 const version = '0.0.1'; // GLOBAL
 
 // Metodo Principal
-void main(List<String> args) {
+void main(List<String> args) async {
+  var runner = commandRunner();
+  await runner.run(args);
   // Se criar uma variavel dentro do Main, é uma variavel local
   if(args.isEmpty || args.first == 'help') {
     printusage();
