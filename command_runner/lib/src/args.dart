@@ -1,4 +1,6 @@
 // Enum - representa um tipo de dado
+import 'package:command_runner/command_runner.dart';
+
 enum OptionType{flag, option}
 
 abstract class Arg {
@@ -17,8 +19,8 @@ class Option extends Arg {
       required this.type,
       this.help,
       this.abbr,
-      this.deafultValue,
-      this.defaultHelp,
+      this.defaultValue,
+      this.valueHelp,
     }
   );
   @override
@@ -38,3 +40,18 @@ class Option extends Arg {
     return '--$name --$help';
   }
 }
+
+abstract class Command extends Arg {
+  @override
+  String get name;
+  String get description;
+  bool get requiresArgument => false;
+  late commandRunner runner;
+  @override
+  String? help;
+  @override
+  String? defaultValue;
+  @override
+  String valueHelp;
+}
+// @override - como ele extende de outra classe, que é a classe Arg, ele avisa pro programa que ele quer usar o daqui não o da outra classe
