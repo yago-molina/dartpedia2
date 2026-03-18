@@ -6,7 +6,7 @@ import '../command_runner.dart';
 enum OptionType { flag, option }
 
 // Paste this new class below the enum you added
-abstract class Argument {
+abstract class Args {
   String get name;
   String? get help;
 
@@ -19,7 +19,7 @@ abstract class Argument {
   String get usage;
 }
 
-class Option extends Argument {
+class Option extends Args {
   Option(
     this.name, {
     required this.type,
@@ -55,7 +55,7 @@ class Option extends Argument {
   }
 }
 
-abstract class Command extends Argument {
+abstract class Command extends Args {
   @override
   String get name;
 
