@@ -1,9 +1,9 @@
-class ArugementException extends FormatException{
+class ArgumentException extends FormatException{
   final String? command;
 
   final String? argumentName;
 
-  ArugementException(
+  ArgumentException(
     super.message, [
       this.command,
       this.argumentName,
