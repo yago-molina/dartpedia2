@@ -10,4 +10,6 @@ class TitleSet {
   String canonico,
   String normalizado,
   String display,
+
+  
 }
